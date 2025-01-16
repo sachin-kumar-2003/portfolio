@@ -3,6 +3,8 @@
 ## Description
 This is a personal portfolio website showcasing my skills, projects, and professional background.
 
+[Click](https://portfolio-goputens-projects.vercel.app/)
+
 ## Features
 - **Hero Section**: An introduction with my name and a brief overview.
 - **Projects Section**: A showcase of various projects I have worked on.
@@ -15,7 +17,7 @@ This is a personal portfolio website showcasing my skills, projects, and profess
 
 ## Links
 - [LinkedIn](https://www.linkedin.com/in/yourprofile)
-- [GitHub](https://github.com/yourprofile)
+- [GitHub](https://github.com/sachin-kumar-2003)
 
 ## Installation Instructions
 1. Clone the repository: `git clone https://github.com/sachin-kumar-2003/portfolio.git`

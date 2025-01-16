@@ -7,8 +7,7 @@ function Project() {
 <section className={styles.container}>
   <h1 className={styles.projecttitle}>Project</h1>
   <div className={styles.projectContainer}>
-   <ProjectCard viberr={viberr} h3="Paper Website" p="full-stack project" link="http://mitpaperdown.rf.gd/MIT/login.php/"></ProjectCard>
-   <ProjectCard viberr={moviescreenshot} h3="Movie website" p="front-end project" link="https://goputen.github.io/movieszone/"></ProjectCard>
+   <ProjectCard viberr={viberr} h3="Paper Website" p="full-stack project ( currently working...)" link="http://mitpaperdown.rf.gd/MIT/login.php/"></ProjectCard>
   </div>
 </section>
   )

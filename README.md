@@ -1,8 +1,32 @@
-# React + Vite
+# Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+This is a personal portfolio website showcasing my skills, projects, and professional background.
 
-Currently, two official plugins are available:
+## Features
+- **Hero Section**: An introduction with my name and a brief overview.
+- **Projects Section**: A showcase of various projects I have worked on.
+- **Skills Section**: A list of my technical skills.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About Me
+- **Name**: Sachin Kumar
+- **Skills**: MERN , Python 
+- **Projects**: Paper Website , 
+
+## Links
+- [LinkedIn](https://www.linkedin.com/in/yourprofile)
+- [GitHub](https://github.com/yourprofile)
+
+## Installation Instructions
+1. Clone the repository: `git clone https://github.com/sachin-kumar-2003/portfolio.git`
+2. Navigate to the project directory: `cd your-repo`
+3. Install dependencies: `npm install`
+
+## Usage
+To run the project, use the following command:
+```
+npm run dev
+```
+
+## License
+This project is licensed under the MIT License.

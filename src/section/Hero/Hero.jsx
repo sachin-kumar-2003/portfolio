@@ -19,7 +19,7 @@ function Hero() {
           <a href="https://www.linkedin.com/in/sachin-kumar215/" target="_blank">
             <img src={linkedinIcon} alt="Linkdin" />
           </a>
-          <a href="https://github.com/goputen" target="_blank">
+          <a href="https://github.com/sachin-kumar-2003" target="_blank">
             <img src={githubIcon} alt="Git-hub" />
           </a>
         </span>

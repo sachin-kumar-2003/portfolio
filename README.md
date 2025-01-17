@@ -30,5 +30,3 @@ To run the project, use the following command:
 npm run dev
 ```
 
-## License
-This project is licensed under the MIT License.

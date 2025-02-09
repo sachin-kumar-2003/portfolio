@@ -3,6 +3,7 @@ body{
   flex-direction: column;
   justify-content: center;
   margin: 0 auto 60px;
+  background-color:whitesmoke;
 }
 #root{
   display: flex;

@@ -1,41 +1,85 @@
 .container {
+  background-color: whitesmoke;
+  color: #333;
+  padding: 25px;
+  border-radius: 12px;
+  margin: 20px auto;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  width: 85vw;
+  max-width: 600px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.skillList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.skillItem {
+  background: white;
+  padding: 18px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  margin: auto;
-
-  span {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 10px;
-  }
-  img {
-    width: 20px;
-  }
-  .skillList {
-    display: flex;
-    justify-content: space-evenly;
-    align-self: wrap;
-    flex-wrap: wrap;
-    row-gap: 40px;
-    max-width: 90ch;
-  }
-  hr {
-    width: 100px;
-    height: 1px;
-    border: none;
-  }
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
-@media(width >=800px){
-  .skillList{
-    max-width: 100ch;
-    gap: 30px;
-  }
-  p{
-    font-size: 30px;
-  }
-  hr{
-    width: 300px;
-  }
+
+.skillItem:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.skillItem p {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.htmlIcon {
+  color: #e34f26;
+  font-size: 42px;
+}
+
+.cssIcon {
+  color: #1572b6;
+  font-size: 42px;
+}
+
+.jsIcon {
+  color: #f7df1e;
+  font-size: 42px;
+}
+
+.phpIcon {
+  color: #777bb4;
+  font-size: 42px;
+}
+
+.reactIcon {
+  color: #61dbfb;
+  font-size: 42px;
+}
+
+.bootstrapIcon {
+  color: #7952b3;
+  font-size: 42px;
+}
+
+.gitIcon {
+  color: #f05032;
+  font-size: 42px;
 }

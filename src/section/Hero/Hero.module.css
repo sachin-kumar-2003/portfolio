@@ -1,309 +1,238 @@
-/* General Container */
+/* Main Container */
 .container {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: radial-gradient(circle at center, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.98) 100%), 
-              url('https://wallpapers.com/images/featured-full/technology-linkedin-background-dce01jsbpnn0z2ej.jpg')
-              no-repeat center center/cover;
-  color: #fff;
-  text-align: center;
-  overflow: hidden;
   padding: 2rem;
-  animation: fadeIn 1.5s ease-in-out;
-  perspective: 1000px;
+  text-align: center;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+/* Dark Mode */
+.dark {
+  background: linear-gradient(
+      rgba(125, 107, 107, 0.8),
+      rgba(0, 0, 0, 0.6)
+    ), 
+    url("https://wallpaperaccess.com/full/1115160.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
 }
 
+/* Light Mode */
+.light {
+  background: #f0f0f0;
+  color: #000;
+}
 
-
-/* Overlay */
-.overlay {
+/* Theme Toggle Button */
+.themeToggle {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(15, 23, 42, 0.7);
-  z-index: 0;
-}
-
-
-.heroContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 1;
-}
-
-/* Hero Image */
-.heroImageContainer {
-  position: relative;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff0000, #0077ff);
+  box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.6), 0px 0px 20px rgba(0, 119, 255, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
 }
 
+/* Toggle Icon */
+.themeToggle i {
+  font-size: 1.5rem;
+  color: white;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.themeToggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8), 0px 0px 30px rgba(0, 119, 255, 0.8);
+}
+
+/* Dark Mode Toggle */
+.dark .themeToggle {
+  background: linear-gradient(135deg, #000, #ff0000);
+  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8), 0px 0px 30px rgba(255, 0, 0, 0.6);
+}
+
+.dark .themeToggle i {
+  transform: rotate(180deg);
+}
+
+/* Light Mode Toggle */
+.light .themeToggle {
+  background: linear-gradient(135deg, #0077ff, #ffcc00);
+  box-shadow: 0px 0px 15px rgba(0, 119, 255, 0.8), 0px 0px 30px rgba(255, 204, 0, 0.6);
+}
+
+.light .themeToggle i {
+  transform: rotate(0deg);
+}
+
+/* Profile Section */
+.imageWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Spider-Man Themed Border */
+.spidermanFrame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 50%;
+  border: 4px solid #ff0000;
+  box-shadow: 0px 0px 20px #ff0000, 0px 0px 40px #0077ff;
+}
+
+/* Profile Image */
 .heroImg {
-  width: 220px;
-  height: 220px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 40px rgba(250, 204, 21, 0.6);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: float 6s ease-in-out infinite, rotate 20s linear infinite;
-  transform-style: preserve-3d;
+  transition: transform 0.3s ease-in-out;
+  filter: contrast(1.2);
 }
-
-@keyframes rotate {
-  0% {
-    transform: rotateY(0deg);
-  }
-  100% {
-    transform: rotateY(360deg);
-  }
-}
-
-
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
 
 .heroImg:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
+  filter: drop-shadow(0px 0px 20px #ff0000);
 }
 
-/* Name & Role */
-.name {
-  font-size: 2.8rem;
+/* Spider-Man Font Colors with White Stroke */
+h1, h2 {
   font-weight: bold;
-  color: #facc15;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-top: 1.5rem;
-  text-shadow: 0 3px 15px rgba(250, 204, 21, 0.5);
-  animation: slideIn 1s ease-out, glow 2s ease-in-out infinite alternate;
+  background: linear-gradient(90deg, #ff0000 30%, #0077ff 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 0px #fff, -2px -2px 0px #fff, 2px -2px 0px #fff, -2px 2px 0px #fff;
 }
 
-@keyframes glow {
-  0% {
-    text-shadow: 0 3px 15px rgba(250, 204, 21, 0.5);
-  }
-  100% {
-    text-shadow: 0 3px 25px rgba(250, 204, 21, 0.8);
-  }
-}
-
-
-@keyframes slideIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-.role {
-  font-size: 1.6rem;
-  color: #a3e635;
-  margin: 1rem 0;
-  font-weight: 500;
-  text-shadow: 0 2px 8px rgba(163, 230, 53, 0.2);
-  animation: slideIn 1.2s ease-out;
-}
-
-
-.description {
-  font-size: 1.2rem;
-  color: #cbd5e1;
-  max-width: 600px;
-  margin: 1.5rem 0;
-  text-align: center;
-  line-height: 1.6;
-  animation: fadeInUp 1.4s ease-out;
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-/* Social Links */
+/* Social Icons */
 .socialLinks {
   display: flex;
   gap: 1.5rem;
   justify-content: center;
   margin: 2rem 0;
-  animation: fadeIn 1.6s ease-out;
 }
-
 
 .socialIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  font-size: 1.8rem;
-  color: #facc15;
+  font-size: 2rem;
+  transition: all 0.3s ease-in-out;
   border-radius: 50%;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  padding: 10px;
 }
 
-.socialIcon:hover {
-  transform: scale(1.1);
-  box-shadow: 0px 0px 10px #facc15;
+/* GitHub Icon */
+.github {
+  color: #fff;
+  background: black;
 }
 
-.leetcodeLink {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #facc15;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  transition: transform 0.3s ease-in-out;
+.github:hover {
+  color: #000;
+  background: #ffcc00;
+  transform: scale(1.2);
 }
 
-.leetcodeLink:hover {
-  transform: scale(1.1);
-  box-shadow: 0px 0px 10px #facc15;
+/* LinkedIn Icon */
+.linkedin {
+  color: #0077b5;
+  background: #fff;
 }
 
-/* Resume Button */
+.linkedin:hover {
+  color: #fff;
+  background: #0077b5;
+  transform: scale(1.2);
+}
+
+/* LeetCode Icon */
+.leetcode {
+  color: #ffa116;
+  background: #fff;
+}
+
+.leetcode:hover {
+  color: #fff;
+  background: #ffa116;
+  transform: scale(1.2);
+}
+
+/* Button Group */
 .buttonGroup {
   display: flex;
   gap: 1.5rem;
-  flex-wrap: wrap;
   justify-content: center;
-  margin: 2rem 0;
-  animation: fadeIn 1.8s ease-out, bounce 2s infinite;
 }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-
-
-.resumeBtn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(90deg, #facc15, #a3e635);
-  padding: 12px 20px;
-  border: none;
-  border-radius: 25px;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #1e293b;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  text-decoration: none;
-}
-
-.contactBtn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(90deg, #3b82f6, #6366f1);
-  padding: 12px 20px;
-  border: none;
-  border-radius: 25px;
-  font-size: 1rem;
-  font-weight: bold;
+/* Resume and Contact Buttons */
+.resumeBtn, .contactBtn {
+  background: linear-gradient(90deg, #ff0000, #0077ff);
   color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
+  border: none;
   transition: all 0.3s ease-in-out;
+  box-shadow: 0px 0px 10px #ff0000;
 }
 
-.resumeBtn:hover,
-.contactBtn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+.resumeBtn:hover, .contactBtn:hover {
+  background: linear-gradient(90deg, #0077ff, #ff0000);
+  transform: scale(1.1);
+  box-shadow: 0px 0px 15px #0077ff;
 }
 
-.tagline {
+/* Light Mode Button Fix */
+.light .resumeBtn, .light .contactBtn {
+  background: linear-gradient(90deg, #ff0000, #000);
+}
+
+.light .resumeBtn:hover, .light .contactBtn:hover {
+  background: linear-gradient(90deg, #000, #ff0000);
+}
+
+/* Description Section with White Stroke */
+.description {
   font-size: 1.2rem;
-  color: #facc15;
-  margin: 1rem 0;
-  font-style: italic;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  font-weight: bold;
+  max-width: 600px;
+  text-align: center;
+  margin: 1.5rem auto;
+  line-height: 1.6;
+  background: linear-gradient(90deg, #ff0000 30%, #0077ff 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 0px #fff, -2px -2px 0px #fff, 2px -2px 0px #fff, -2px 2px 0px #fff;
+  transition: transform 0.3s ease-in-out;
 }
 
-@media (max-width: 768px) {
-  .heroContent {
-    padding: 0 1rem;
-  }
-  
-  .name {
-    font-size: 1.8rem;
-  }
-  
-  .role {
-    font-size: 1.2rem;
-  }
-  
-  .description {
-    font-size: 1rem;
-  }
-  
-  .tagline {
-    font-size: 1rem;
-  }
-  
-  .buttonGroup {
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .resumeBtn,
-  .contactBtn {
-    width: 100%;
-    justify-content: center;
-  }
+/* Hover Effect */
+.description:hover {
+  transform: scale(1.05);
+  text-shadow: 0px 0px 20px #ff0000, 0px 0px 40px #0077ff;
 }
 
-
-.resumeBtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.3);
+/* Light Mode Fix */
+.light .description {
+  background: linear-gradient(90deg, #ff0000 30%, #000 70%);
 }

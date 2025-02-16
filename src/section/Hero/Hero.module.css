@@ -1,238 +1,265 @@
-/* Main Container */
+/* Hero.module.css */
+
+/* Base Styles */
 .container {
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 2rem;
-  text-align: center;
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-}
-
-/* Dark Mode */
-.dark {
-  background: linear-gradient(
-      rgba(125, 107, 107, 0.8),
-      rgba(0, 0, 0, 0.6)
-    ), 
-    url("https://wallpaperaccess.com/full/1115160.png");
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
-  color: #ffffff;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Bangers', cursive;
 }
 
-/* Light Mode */
-.light {
-  background: #f0f0f0;
-  color: #000;
-}
-
-/* Theme Toggle Button */
-.themeToggle {
+/* Web Pattern Background */
+.container::before {
+  content: '';
   position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
-  border: none;
+  width: 200%;
+  height: 200%;
+  background: 
+    linear-gradient(45deg, transparent 60%, rgba(255,0,0,0.1) 60%),
+    linear-gradient(-45deg, transparent 60%, rgba(0,119,255,0.1) 60%);
+  background-size: 50px 50px;
+  animation: webMove 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes webMove {
+  from { transform: translate(-25%, -25%); }
+  to { transform: translate(0, 0); }
+}
+
+/* Dark/Light Themes */
+.dark {
+  background: linear-gradient(135deg, #0a0a1a 0%, #2a0a2a 100%);
+  color: #fff;
+}
+
+.light {
+  background: linear-gradient(135deg, #f4f4f4 0%, #fff 100%);
+  color: #2a0a2a;
+}
+
+/* Comic Book Style Theme Toggle */
+.themeToggle {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border: 3px solid #fff;
   border-radius: 50%;
-  background: linear-gradient(135deg, #ff0000, #0077ff);
-  box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.6), 0px 0px 20px rgba(0, 119, 255, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: linear-gradient(45deg, #ff0000 30%, #0077ff 70%);
+  box-shadow: 
+    0 0 20px #ff0000,
+    0 0 40px #0077ff,
+    4px 4px 0 #000;
   cursor: pointer;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease;
+  animation: powerPulse 2s infinite;
+  z-index: 1000;
 }
 
-/* Toggle Icon */
-.themeToggle i {
-  font-size: 1.5rem;
-  color: white;
-  transition: transform 0.3s ease-in-out;
+@keyframes powerPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
 
-/* Hover Effect */
 .themeToggle:hover {
-  transform: scale(1.1);
-  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8), 0px 0px 30px rgba(0, 119, 255, 0.8);
+  transform: rotate(360deg) scale(1.2);
+  box-shadow: 
+    0 0 30px #ff0000,
+    0 0 60px #0077ff,
+    6px 6px 0 #000;
 }
 
-/* Dark Mode Toggle */
-.dark .themeToggle {
-  background: linear-gradient(135deg, #000, #ff0000);
-  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8), 0px 0px 30px rgba(255, 0, 0, 0.6);
-}
-
-.dark .themeToggle i {
-  transform: rotate(180deg);
-}
-
-/* Light Mode Toggle */
-.light .themeToggle {
-  background: linear-gradient(135deg, #0077ff, #ffcc00);
-  box-shadow: 0px 0px 15px rgba(0, 119, 255, 0.8), 0px 0px 30px rgba(255, 204, 0, 0.6);
-}
-
-.light .themeToggle i {
-  transform: rotate(0deg);
-}
-
-/* Profile Section */
+/* Spider Emblem Profile Frame */
 .imageWrapper {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1rem;
+  margin: 2rem 0;
+  filter: drop-shadow(0 0 20px rgba(255,0,0,0.5));
 }
 
-/* Spider-Man Themed Border */
 .spidermanFrame {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  border-radius: 50%;
-  border: 4px solid #ff0000;
-  box-shadow: 0px 0px 20px #ff0000, 0px 0px 40px #0077ff;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: linear-gradient(45deg, 
+    #ff0000 25%, 
+    #0077ff 75%);
+  padding: 8px;
+  animation: emblemGlow 3s infinite alternate;
 }
 
-/* Profile Image */
+@keyframes emblemGlow {
+  from { box-shadow: 0 0 30px rgba(255,0,0,0.5); }
+  to { box-shadow: 0 0 50px rgba(0,119,255,0.5); }
+}
+
 .heroImg {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease-in-out;
-  filter: contrast(1.2);
+  clip-path: inherit;
+  border: 3px solid #fff;
+  transition: all 0.3s ease;
 }
 
 .heroImg:hover {
-  transform: scale(1.1);
-  filter: drop-shadow(0px 0px 20px #ff0000);
+  transform: rotateY(15deg) scale(1.05);
+  filter: saturate(1.5) contrast(1.2);
 }
 
-/* Spider-Man Font Colors with White Stroke */
-h1, h2 {
-  font-weight: bold;
-  background: linear-gradient(90deg, #ff0000 30%, #0077ff 70%);
+/* Comic Text Styles */
+.name {
+  font-size: 4rem;
+  letter-spacing: 3px;
+  text-shadow: 
+    3px 3px 0 #000,
+    -1px -1px 0 #fff;
+  background: linear-gradient(45deg, #ff0000 30%, #0077ff 70%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 2px 2px 0px #fff, -2px -2px 0px #fff, 2px -2px 0px #fff, -2px 2px 0px #fff;
+  margin: 1rem 0;
+  position: relative;
 }
 
-/* Social Icons */
+.name::after {
+  content: '🕷';
+  position: absolute;
+  right: -40px;
+  top: -10px;
+  font-size: 2rem;
+  animation: spiderSwing 2s infinite;
+}
+
+@keyframes spiderSwing {
+  0%, 100% { transform: rotate(-10deg); }
+  50% { transform: rotate(10deg); }
+}
+
+.role {
+  font-size: 2rem;
+  color: inherit;
+  border-bottom: 3px solid #ff0000;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin: 1rem 0;
+}
+
+/* Web-Shooter Social Links */
 .socialLinks {
   display: flex;
-  gap: 1.5rem;
-  justify-content: center;
+  gap: 2rem;
   margin: 2rem 0;
+  justify-content: center;
 }
 
 .socialIcon {
-  font-size: 2rem;
-  transition: all 0.3s ease-in-out;
-  border-radius: 50%;
+  font-size: 2.5rem;
   padding: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 
-/* GitHub Icon */
-.github {
-  color: #fff;
-  background: black;
+.socialIcon:hover {
+  transform: translateY(-5px);
+  background: rgba(255,0,0,0.2);
+  border-color: #fff;
+  box-shadow: 0 5px 15px rgba(0,119,255,0.3);
 }
 
-.github:hover {
-  color: #000;
-  background: #ffcc00;
-  transform: scale(1.2);
-}
-
-/* LinkedIn Icon */
-.linkedin {
-  color: #0077b5;
-  background: #fff;
-}
-
-.linkedin:hover {
-  color: #fff;
-  background: #0077b5;
-  transform: scale(1.2);
-}
-
-/* LeetCode Icon */
-.leetcode {
-  color: #ffa116;
-  background: #fff;
-}
-
-.leetcode:hover {
-  color: #fff;
-  background: #ffa116;
-  transform: scale(1.2);
-}
-
-/* Button Group */
+/* Animated Action Buttons */
 .buttonGroup {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
+  margin: 2rem 0;
   justify-content: center;
 }
 
-/* Resume and Contact Buttons */
 .resumeBtn, .contactBtn {
-  background: linear-gradient(90deg, #ff0000, #0077ff);
-  color: #fff;
-  padding: 12px 24px;
+  padding: 1rem 2rem;
+  border: none;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
-  border: none;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0px 0px 10px #ff0000;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.resumeBtn {
+  background: linear-gradient(45deg, #ff0000 30%, #b80000 70%);
+  box-shadow: 0 5px 15px rgba(255,0,0,0.3);
+}
+
+.contactBtn {
+  background: linear-gradient(45deg, #0077ff 30%, #0044ff 70%);
+  box-shadow: 0 5px 15px rgba(0,119,255,0.3);
 }
 
 .resumeBtn:hover, .contactBtn:hover {
-  background: linear-gradient(90deg, #0077ff, #ff0000);
   transform: scale(1.1);
-  box-shadow: 0px 0px 15px #0077ff;
+  box-shadow: 
+    0 8px 25px rgba(255,0,0,0.5),
+    0 0 15px rgba(255,255,255,0.3) inset;
 }
 
-/* Light Mode Button Fix */
-.light .resumeBtn, .light .contactBtn {
-  background: linear-gradient(90deg, #ff0000, #000);
-}
-
-.light .resumeBtn:hover, .light .contactBtn:hover {
-  background: linear-gradient(90deg, #000, #ff0000);
-}
-
-/* Description Section with White Stroke */
+/* Comic Style Description */
 .description {
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 1.3rem;
   max-width: 600px;
-  text-align: center;
-  margin: 1.5rem auto;
-  line-height: 1.6;
-  background: linear-gradient(90deg, #ff0000 30%, #0077ff 70%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 2px 2px 0px #fff, -2px -2px 0px #fff, 2px -2px 0px #fff, -2px 2px 0px #fff;
-  transition: transform 0.3s ease-in-out;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.1);
+  border: 3px solid #fff;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 
+    5px 5px 0 #000,
+    0 0 20px rgba(0,119,255,0.2);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 95% 100%, 5% 100%, 0 80%);
 }
 
-/* Hover Effect */
-.description:hover {
-  transform: scale(1.05);
-  text-shadow: 0px 0px 20px #ff0000, 0px 0px 40px #0077ff;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .name {
+    font-size: 2.5rem;
+  }
+  
+  .spidermanFrame {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .buttonGroup {
+    flex-direction: column;
+  }
+  
+  .themeToggle {
+    width: 50px;
+    height: 50px;
+    top: 20px;
+    right: 20px;
+  }
 }
 
-/* Light Mode Fix */
-.light .description {
-  background: linear-gradient(90deg, #ff0000 30%, #000 70%);
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }

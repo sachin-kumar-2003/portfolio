@@ -38,7 +38,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, rgba(26, 26, 26, 0.9), rgba(0, 0, 0, 0.85));
+  background: linear-gradient(45deg, rgba(165, 159, 159, 0.9), rgba(81, 3, 3, 0.85));
   z-index: 1;
 }
 
@@ -55,6 +55,11 @@
   max-width: 1200px;
   width: 90%;
   z-index: 2;
+}
+
+.text {
+  flex: 1;
+  text-align: left;
 }
 
 .text h1 {
@@ -94,26 +99,11 @@
   font-size: 2.5rem;
   color: var(--spider-blue);
   text-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
-  position: relative;
-  display: inline-block;
 }
 
-.text h2::before {
-  content: '🕸️';
-  position: absolute;
-  left: -40px;
-  top: -10px;
-  opacity: 0.5;
-  animation: swing 3s ease-in-out infinite;
-}
-
-@keyframes textGlow {
-  from {
-    text-shadow: 0 0 10px var(--spider-red);
-  }
-  to {
-    text-shadow: 0 0 20px var(--spider-red), 0 0 30px var(--spider-red);
-  }
+.text p {
+  font-size: 1.2rem;
+  margin-top: 10px;
 }
 
 .buttons {
@@ -122,12 +112,21 @@
   margin-top: 30px;
 }
 
+.btn, .btnOutline {
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s ease;
+}
+
 .btn {
-  background: linear-gradient(135deg, var(--spider-red), #b30000);
+  background: linear-gradient(135deg, var(--spider-red), #8a0303);
   position: relative;
   overflow: hidden;
-  transition: 0.3s ease;
-  transform-style: preserve-3d;
 }
 
 .btn::before {
@@ -146,8 +145,6 @@
 
 .btnOutline {
   border: 2px solid var(--spider-blue);
-  position: relative;
-  transition: 0.3s ease;
 }
 
 .btnOutline:hover {
@@ -155,37 +152,30 @@
   text-shadow: 0 0 10px rgba(255,255,255,0.5);
 }
 
+/* Profile Image Styling */
+.imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
 .heroImg {
-  border: 6px solid var(--spider-red);
+  width: 250px; /* Adjust size as needed */
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--spider-red);
   box-shadow: 
-    0 0 30px var(--spider-red),
-    0 0 50px rgba(0, 170, 255, 0.3);
-  position: relative;
-  transition: 0.3s ease;
+    0 0 20px var(--spider-red),
+    0 0 30px var(--spider-blue);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .heroImg:hover {
-  transform: scale(1.05) rotate(2deg);
+  transform: scale(1.05);
   box-shadow: 
-    0 0 40px var(--spider-red),
-    0 0 60px var(--spider-blue);
-}
-
-.heroImg::before {
-  content: '';
-  position: absolute;
-  width: 110%;
-  height: 110%;
-  border: 3px solid var(--spider-blue);
-  border-radius: 50%;
-  opacity: 0.3;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 0.3; }
-  50% { transform: scale(1.1); opacity: 0.1; }
-  100% { transform: scale(1); opacity: 0.3; }
+    0 0 30px var(--spider-red),
+    0 0 40px var(--spider-blue);
 }
 
 @media (max-width: 768px) {
@@ -210,5 +200,10 @@
 
   .text h2 {
     font-size: 1.8rem;
+  }
+
+  .heroImg {
+    width: 200px;
+    height: 200px;
   }
 }

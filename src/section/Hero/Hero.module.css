@@ -1,344 +1,133 @@
-/* Hero.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap');
 
-/* Base Universe Container */
-.container {
-  min-height: 100vh;
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url('../../assets/spiderman-bg.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  text-align: center;
+  color: white;
   overflow: hidden;
-  background: radial-gradient(ellipse at bottom, #0a0a2a 0%, #000000 100%);
-  font-family: 'Orbitron', sans-serif;
-  perspective: 1000px;
-  transform-style: preserve-3d;
 }
 
-/* Cosmic Energy Field */
-.cosmic-field {
-  position: absolute;
-  width: 200vw;
-  height: 200vh;
-  background: 
-    radial-gradient(circle at 50% 50%, 
-      rgba(255,0,0,0.1) 0%, 
-      transparent 60%),
-    repeating-conic-gradient(
-      from 0deg at 50% 50%,
-      #0077ff22 0deg 15deg,
-      #ff000022 15deg 30deg
-    );
-  animation: cosmicSpin 60s linear infinite;
-  filter: blur(30px);
-  z-index: 0;
-}
-
-@keyframes cosmicSpin {
-  100% { transform: rotate(360deg); }
-}
-
-/* Nebula Overlay */
-.nebula-overlay {
+.overlay {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: 
-    radial-gradient(circle at 20% 80%, #ff000033 25%, transparent 50%),
-    radial-gradient(circle at 80% 20%, #0077ff33 25%, transparent 50%);
-  animation: nebulaPulse 15s ease-in-out infinite alternate;
-  mix-blend-mode: screen;
+  background: rgba(0, 0, 0, 0.75);
 }
 
-@keyframes nebulaPulse {
-  from { opacity: 0.3; transform: scale(1); }
-  to { opacity: 0.7; transform: scale(1.2); }
-}
-
-/* Quantum Theme Toggle */
-.themeToggle {
-  position: fixed;
-  top: 30px;
-  right: 30px;
-  width: 70px;
-  height: 70px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  background: 
-    radial-gradient(circle at 30% 30%, #ff0000, #0077ff),
-    linear-gradient(45deg, #ff0000, #0077ff);
-  box-shadow:
-    0 0 40px #ff0000,
-    0 0 60px #0077ff,
-    inset 0 0 20px rgba(255,255,255,0.2);
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  animation: 
-    quantumFloat 3s ease-in-out infinite,
-    particleEmit 2s linear infinite;
-  z-index: 1000;
-}
-
-@keyframes quantumFloat {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(180deg); }
-}
-
-@keyframes particleEmit {
-  from { box-shadow: 0 0 40px #ff0000, 0 0 60px #0077ff; }
-  to { box-shadow: 0 0 60px #ff0000, 0 0 80px #0077ff; }
-}
-
-/* Hero Core */
-.heroContent {
+.container {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 90%;
   z-index: 2;
-  padding: 4rem;
-  background: rgba(0,0,0,0.7);
-  border-radius: 30px;
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 
-    0 0 50px rgba(255,0,0,0.3),
-    0 0 70px rgba(0,119,255,0.3);
-  transform: translateZ(50px);
 }
 
-/* Singularity Profile */
-.imageWrapper {
-  position: relative;
-  margin: 2rem 0;
-  filter: drop-shadow(0 0 30px rgba(255,0,0,0.5));
+.text {
+  flex: 1;
+  max-width: 600px;
+  text-align: left;
 }
 
-.spidermanFrame {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: 
-    radial-gradient(circle at 70% 30%, #ff0000, #0077ff),
-    linear-gradient(45deg, #ff0000, #0077ff);
-  padding: 10px;
-  animation: 
-    singularityPulse 4s ease-in-out infinite,
-    chromaShift 8s linear infinite;
+.text h1 {
+  font-size: 3.5rem;
+  font-family: 'Bebas Neue', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
-@keyframes singularityPulse {
-  0%, 100% { transform: scale(1); filter: blur(0px); }
-  50% { transform: scale(1.05); filter: blur(10px); }
+.name {
+  color: #ff2e2e;
+  text-shadow: 4px 4px 15px rgba(255, 46, 46, 0.8);
 }
 
-@keyframes chromaShift {
-  100% { filter: hue-rotate(360deg); }
+.text h2 {
+  font-size: 2rem;
+  font-family: 'Poppins', sans-serif;
+  color: #00aaff;
+  text-shadow: 2px 2px 10px rgba(0, 170, 255, 0.8);
+  font-weight: 600;
+}
+
+.text p {
+  margin: 15px 0;
+  font-size: 1.2rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn {
+  background: linear-gradient(135deg, #ff2e2e, #b30000);
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px rgba(255, 46, 46, 0.8);
+}
+
+.btn:hover {
+  background: #d40000;
+  box-shadow: 0px 0px 15px #ff2e2e;
+  transform: scale(1.05);
+}
+
+.btnOutline {
+  background: transparent;
+  color: #00aaff;
+  padding: 12px 24px;
+  border: 2px solid #00aaff;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.btnOutline:hover {
+  background: #00aaff;
+  color: white;
+  box-shadow: 0px 0px 10px #00aaff;
+  transform: scale(1.05);
+}
+
+.imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .heroImg {
-  width: 100%;
-  height: 100%;
+  width: 320px;
+  height: 320px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid #fff;
-  clip-path: polygon(
-    50% 0%,
-    90% 20%,
-    100% 60%,
-    75% 100%,
-    25% 100%,
-    0% 60%,
-    10% 20%
-  );
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 6px solid #ff2e2e;
+  box-shadow: 0px 0px 25px rgba(255, 46, 46, 0.8);
+  transition: transform 0.3s ease-in-out;
 }
 
 .heroImg:hover {
-  transform: 
-    rotateZ(360deg) 
-    scale(1.1);
-  filter: 
-    saturate(2)
-    contrast(1.5)
-    drop-shadow(0 0 30px rgba(0,119,255,0.7));
-}
-
-/* Neon Matrix Text */
-.name {
-  font-size: 5rem;
-  letter-spacing: 4px;
-  text-shadow: 
-    0 0 10px #ff0000,
-    0 0 20px #0077ff,
-    0 0 30px #ff0000;
-  background: linear-gradient(
-    45deg,
-    #ff0000 25%,
-    #0077ff 75%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: 2rem 0;
-  position: relative;
-  animation: textGlitch 0.1s infinite;
-}
-
-@keyframes textGlitch {
-  0% { clip-path: inset(10% 0 85% 0); }
-  50% { clip-path: inset(30% 0 65% 0); }
-  100% { clip-path: inset(10% 0 85% 0); }
-}
-
-/* Holographic Role Display */
-.role {
-  font-size: 2.5rem;
-  padding: 1rem 2rem;
-  background: rgba(255,255,255,0.1);
-  border: 2px solid rgba(255,255,255,0.2);
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  display: inline-block;
-  position: relative;
-  animation: 
-    roleHover 3s ease-in-out infinite,
-    borderFlow 4s linear infinite;
-}
-
-@keyframes borderFlow {
-  from { border-image: linear-gradient(45deg, #ff0000, #0077ff) 1; }
-  to { border-image: linear-gradient(45deg, #0077ff, #ff0000) 1; }
-}
-
-/* Quantum Social Links */
-.socialLinks {
-  display: flex;
-  gap: 2rem;
-  margin: 3rem 0;
-  justify-content: center;
-}
-
-.socialIcon {
-  font-size: 3rem;
-  padding: 15px;
-  border-radius: 15px;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.socialIcon::before {
-  content: '';
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent 25%,
-    rgba(255,255,255,0.2) 50%,
-    transparent 75%
-  );
-  animation: quantumStream 2s linear infinite;
-}
-
-@keyframes quantumStream {
-  from { transform: translateX(-50%) translateY(-50%) rotate(45deg); }
-  to { transform: translateX(50%) translateY(50%) rotate(45deg); }
-}
-
-.socialIcon:hover {
-  transform: 
-    scale(1.5)
-    rotate(360deg);
-  box-shadow: 
-    0 0 30px rgba(255,0,0,0.5),
-    0 0 30px rgba(0,119,255,0.5);
-}
-
-/* Plasma Buttons */
-.buttonGroup {
-  display: flex;
-  gap: 3rem;
-  margin: 3rem 0;
-  justify-content: center;
-}
-
-.resumeBtn, .contactBtn {
-  padding: 1.5rem 3rem;
-  border: none;
-  border-radius: 25px;
-  font-size: 1.3rem;
-  background: 
-    linear-gradient(45deg, 
-      #ff0000 30%, 
-      #0077ff 70%);
-  box-shadow: 
-    0 0 30px rgba(255,0,0,0.3),
-    0 0 50px rgba(0,119,255,0.3);
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s ease;
-  clip-path: polygon(
-    0 20%,
-    20% 0,
-    80% 0,
-    100% 20%,
-    100% 80%,
-    80% 100%,
-    20% 100%,
-    0 80%
-  );
-}
-
-.resumeBtn::after, .contactBtn::after {
-  content: '';
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background: rgba(255,255,255,0.1);
-  transform: rotate(45deg);
-  animation: plasmaFlow 3s linear infinite;
-}
-
-@keyframes plasmaFlow {
-  from { transform: translateX(-100%) rotate(45deg); }
-  to { transform: translateX(100%) rotate(45deg); }
-}
-
-.resumeBtn:hover, .contactBtn:hover {
-  transform: 
-    scale(1.2)
-    skewX(-10deg);
-  box-shadow: 
-    0 0 50px rgba(255,0,0,0.5),
-    0 0 70px rgba(0,119,255,0.5);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .heroContent {
-    padding: 2rem;
-    margin: 1rem;
-  }
-  
-  .name {
-    font-size: 3rem;
-  }
-  
-  .spidermanFrame {
-    width: 200px;
-    height: 200px;
-  }
-  
-  .buttonGroup {
-    flex-direction: column;
-  }
-}
-
-/* Cyber Enhancements */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
+  transform: scale(1.1);
 }
